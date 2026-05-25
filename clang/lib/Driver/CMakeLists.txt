@@ -54,6 +54,7 @@ add_clang_library(clangDriver
   ToolChains/Cygwin.cpp
   ToolChains/Darwin.cpp
   ToolChains/DragonFly.cpp
+  ToolChains/Ferrite.cpp
   ToolChains/Flang.cpp
   ToolChains/FreeBSD.cpp
   ToolChains/Fuchsia.cpp

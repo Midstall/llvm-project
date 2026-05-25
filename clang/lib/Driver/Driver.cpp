@@ -20,6 +20,7 @@
 #include "ToolChains/Cygwin.h"
 #include "ToolChains/Darwin.h"
 #include "ToolChains/DragonFly.h"
+#include "ToolChains/Ferrite.h"
 #include "ToolChains/FreeBSD.h"
 #include "ToolChains/Fuchsia.h"
 #include "ToolChains/Gnu.h"
@@ -6876,6 +6877,9 @@ const ToolChain &Driver::getToolChain(const ArgList &Args,
       break;
     case llvm::Triple::UEFI:
       TC = std::make_unique<toolchains::UEFI>(*this, Target, Args);
+      break;
+    case llvm::Triple::Ferrite:
+      TC = std::make_unique<toolchains::Ferrite>(*this, Target, Args);
       break;
     case llvm::Triple::Win32:
       switch (Target.getEnvironment()) {
