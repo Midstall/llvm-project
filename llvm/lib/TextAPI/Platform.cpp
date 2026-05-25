@@ -116,6 +116,8 @@ std::string getOSAndEnvironmentName(PlatformType Platform,
     return "xros" + Version;
   case PLATFORM_XROS_SIMULATOR:
     return "xros" + Version + "-simulator";
+  case PLATFORM_FERRITE:
+    return "ferrite" + Version;
   }
   llvm_unreachable("Unknown llvm::MachO::PlatformType enum");
 }

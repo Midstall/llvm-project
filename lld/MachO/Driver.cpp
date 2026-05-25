@@ -721,6 +721,7 @@ static PlatformVersion parsePlatformVersion(const Arg *arg) {
           .Cases("driverkit", "10", PLATFORM_DRIVERKIT)
           .Cases("xros", "11", PLATFORM_XROS)
           .Cases("xros-simulator", "12", PLATFORM_XROS_SIMULATOR)
+          .Cases("ferrite", "100", PLATFORM_FERRITE)
           .Default(PLATFORM_UNKNOWN);
   if (platformVersion.platform == PLATFORM_UNKNOWN)
     error(Twine("malformed platform: ") + platformStr);

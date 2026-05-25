@@ -135,6 +135,10 @@ PLATFORM(WATCHOSSIMULATOR, 9, watchossimulator, watchossimulator, watchos-simula
 PLATFORM(DRIVERKIT, 10, driverkit, driverkit, driverkit, driverkit, DriverKit)
 PLATFORM(XROS, 11, xros, xros, xros, xros, xrOS)
 PLATFORM(XROS_SIMULATOR, 12, xrsimulator, xrsimulator, xrsimulator, xros-simulator, xrOS Simulator)
+// Non-Apple platforms start at 100 to leave Apple's sequential range
+// alone. Ferrite is a Zig-written microkernel that uses mach-o for its
+// userspace binaries; see Triple::Ferrite.
+PLATFORM(FERRITE, 100, ferrite, ferrite, ferrite, ferrite, Ferrite)
 #endif
 
 #undef HANDLE_LOAD_COMMAND
