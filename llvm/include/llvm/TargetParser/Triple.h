@@ -243,7 +243,8 @@ public:
     LiteOS,
     Serenity,
     Vulkan, // Vulkan SPIR-V
-    LastOSType = Vulkan
+    Ferrite,
+    LastOSType = Ferrite
   };
   enum EnvironmentType {
     UnknownEnvironment,
@@ -764,6 +765,9 @@ public:
   bool isOSSerenity() const {
     return getOS() == Triple::Serenity;
   }
+
+  /// Tests whether the OS is the Ferrite microkernel.
+  bool isOSFerrite() const { return getOS() == Triple::Ferrite; }
 
   /// Tests whether the OS uses the ELF binary format.
   bool isOSBinFormatELF() const {

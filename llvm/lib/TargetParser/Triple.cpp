@@ -322,6 +322,7 @@ StringRef Triple::getOSTypeName(OSType Kind) {
   case LiteOS: return "liteos";
   case XROS: return "xros";
   case Vulkan: return "vulkan";
+  case Ferrite: return "ferrite";
   }
 
   llvm_unreachable("Invalid OSType");
@@ -717,6 +718,7 @@ static Triple::OSType parseOS(StringRef OSName) {
     .StartsWith("liteos", Triple::LiteOS)
     .StartsWith("serenity", Triple::Serenity)
     .StartsWith("vulkan", Triple::Vulkan)
+    .StartsWith("ferrite", Triple::Ferrite)
     .Default(Triple::UnknownOS);
 }
 
@@ -922,6 +924,11 @@ static Triple::SubArchType parseSubArch(StringRef SubArchName) {
 }
 
 static Triple::ObjectFormatType getDefaultFormat(const Triple &T) {
+  // Ferrite uses mach-o as its native object format across every
+  // supported architecture, so it overrides the per-arch defaults.
+  if (T.isOSFerrite())
+    return Triple::MachO;
+
   switch (T.getArch()) {
   case Triple::UnknownArch:
   case Triple::aarch64:
